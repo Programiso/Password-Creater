@@ -1,0 +1,7 @@
+{
+  "priority": 1,
+  "min_lenth": 5,
+  "max_lenth": 30,
+  "password_color": "green",
+  "language": "English"
+}
