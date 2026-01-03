@@ -18,7 +18,7 @@ class GeneratePassword():
         self.password_color = password_color #dane o kolorze hasla, ktore bedzie wygnerowane(domyslnie zielony(\033[32))
         self.language = language #informacje o jezyku(domyslny Angielski)
         self.int_error_msg = int_error_msg #zmienna(a bardziej stala) przechowujaca komunikat o bledzie
-        self.e_priority = e_priority #zmienna przechowuj¹ca elegancko zformatowany text 
+        self.e_priority = e_priority #zmienna przechowujÂ¹ca elegancko zformatowany text 
 
     def settings(self):
         """Modul, ktory wyswietla uzytkownikowi opcje zmian lub zastosowania domyslnych
@@ -39,9 +39,14 @@ class GeneratePassword():
         """Elegancko formatuje text i zwraca go.
         Wymagane parametry: brak"""
         #Typy hasel:
-        type1 = "Numerical"
-        type2 = "Letters"
-        type3 = "Alphanumerical"
+        if self.language == 1: #wsparcie jezyka Agnielskiego:
+            type1 = "Numerical"
+            type2 = "Alphabetical"
+            type3 = "Alphanumerical"
+        elif self.language == 0: #wsparcie dla jezyka Polskiego
+            type1 = "Numeryczny"
+            type2 = "Alfabetyczny"
+            type3 = "Alfanumeryczny"
         #Konwersja na elegancki text
         if self.priority == 1:
             self.e_priority = f"[({type1}) {type2} {type3}]"
@@ -237,3 +242,4 @@ class GeneratePassword():
                 print(password)
                 print(is_rotated)
                 password.pop() #wymuje litere z hasla
+
